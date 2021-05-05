@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">AcronymApp</string>
     <string name="welcom_txt">Welcome to Acronym App</string>
+    <string name="sample_text">Sample Text</string>
 </resources>

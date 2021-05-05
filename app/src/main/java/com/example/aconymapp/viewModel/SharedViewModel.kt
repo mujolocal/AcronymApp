@@ -5,7 +5,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.aconymapp.model.AcronymResponse
 import com.example.aconymapp.model.AcronymResponseItem
 import com.example.aconymapp.repo.AcronymRepo
 import com.example.aconymapp.util.ApiState
