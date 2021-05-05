@@ -21,15 +21,16 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             sharedViewModel  = sharedVM
         }
         sharedVM.apiState.observe(viewLifecycleOwner){ response ->
-            if (response is ApiState.Success){
-                val action = response.acronyms.let {
-                    HomeFragmentDirections.actionHomeFragmentToAcronymListFragment()
+            if (response is ApiState.Success) {
+                val action = response.acronyms?.let {
+                    HomeFragmentDirections.actionHomeFragmentToAcronymListFragment(
+                        it
+                    )
                 }
-                if (action != null){
+                if (action != null) {
                     findNavController().navigate(action)
                 }
-            }else{
-                Log.d("tate", "onViewCreated: else statement r something ")
+                sharedVM.toggleCompletedState()
             }
         }
     }

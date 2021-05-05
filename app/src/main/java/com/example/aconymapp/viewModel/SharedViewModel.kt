@@ -14,8 +14,8 @@ import kotlinx.coroutines.launch
 
 class SharedViewModel : ViewModel(){
     private  val TAG = "SharedViewModel"
-    private val _apiState = MutableLiveData<ApiState<List<AcronymResponseItem>?>>()
-    val apiState: LiveData<ApiState<List<AcronymResponseItem>?>>
+    private val _apiState = MutableLiveData<ApiState<AcronymResponseItem>>()
+    val apiState: LiveData<ApiState<AcronymResponseItem>>
         get() = _apiState
 
 //    fun getResponse(acronym:String) {
@@ -29,7 +29,7 @@ fun getResponse() {
                 val acronymResponse: List<AcronymResponseItem>? = AcronymRepo.getAcronymResponse("fe")
                 if (acronymResponse != null) {
                     Log.d(TAG, "getResponse:${acronymResponse} ")
-                    _apiState.postValue(ApiState.Success(acronymResponse))
+                    _apiState.postValue(ApiState.Success(acronymResponse[0]))
                 }
             }
         } catch (e: Exception) {

@@ -15,5 +15,9 @@
     <fragment
         android:id="@+id/acronymListFragment"
         android:name="com.example.aconymapp.view.AcronymListFragment"
-        android:label="AcronymListFragment" />
+        android:label="AcronymListFragment" >
+        <argument
+            android:name="acronyms"
+            app:argType="com.example.aconymapp.model.AcronymResponseItem" />
+    </fragment>
 </navigation>
