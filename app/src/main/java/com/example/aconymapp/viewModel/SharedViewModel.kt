@@ -1,7 +1,6 @@
 package com.example.aconymapp.viewModel
 
 
-import android.util.Log
 import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -14,8 +13,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
-
-class SharedViewModel : ViewModel(){
+class SharedViewModel : ViewModel() {
     var acronym = ObservableField<String>()
     private val _apiState = MutableLiveData<ApiState<AcronymResponseItem>>()
     val apiState: LiveData<ApiState<AcronymResponseItem>>
@@ -26,22 +24,23 @@ class SharedViewModel : ViewModel(){
         try {
             viewModelScope.launch(Dispatchers.IO) {
                 acronym.get()?.let {
-                _apiState.postValue(ApiState.Loading)
-                val acronymResponse: List<AcronymResponseItem>? = AcronymRepo.getAcronymResponse(it)
-                if (acronymResponse.isNullOrEmpty()) {
-                    _apiState.postValue(ApiState.Completed)
-                }else{
-                    _apiState.postValue(ApiState.Success(acronymResponse[0]))
+                    _apiState.postValue(ApiState.Loading)
+                    val acronymResponse: List<AcronymResponseItem>? =
+                        AcronymRepo.getAcronymResponse(it)
+                    if (acronymResponse.isNullOrEmpty()) {
+                        _apiState.postValue(ApiState.Completed)
+                    } else {
+                        _apiState.postValue(ApiState.Success(acronymResponse[0]))
+                    }
                 }
             }
-        }
-        }catch (e: Exception) {
+        } catch (e: Exception) {
             ApiState.Error("Network error, please try again.")
         }
     }
 
     fun toggleCompletedState() {
-        _apiState.postValue( ApiState.Completed)
+        _apiState.postValue(ApiState.Completed)
     }
 
 }

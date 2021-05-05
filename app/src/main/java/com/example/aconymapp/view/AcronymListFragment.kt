@@ -8,7 +8,7 @@ import com.example.aconymapp.R
 import com.example.aconymapp.adapters.AcronymAdapter
 import com.example.aconymapp.databinding.AcronymListFragmentBinding
 
-class AcronymListFragment: Fragment(R.layout.acronym_list_fragment) {
+class AcronymListFragment : Fragment(R.layout.acronym_list_fragment) {
     private val args: AcronymListFragmentArgs by navArgs()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -16,7 +16,6 @@ class AcronymListFragment: Fragment(R.layout.acronym_list_fragment) {
             acronymRv.adapter = AcronymAdapter(args.acronyms)
         }
     }
-
 
 
 }

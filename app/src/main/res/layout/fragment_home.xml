@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="shared_view_model"
             type="com.example.aconymapp.viewModel.SharedViewModel" />
@@ -14,8 +15,8 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
-        tools:context=".HomeFragment"
-        android:padding="@dimen/screen_padding">
+        android:padding="@dimen/screen_padding"
+        tools:context=".HomeFragment">
 
         <!-- TODO: Update blank fragment layout -->
         <ProgressBar
@@ -29,29 +30,29 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/welcom_txt" />
+
         <com.google.android.material.textfield.TextInputLayout
-            android:hint="@string/ti_hint"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            >
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/acronym_et"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawablePadding="5dp"
-            android:singleLine="true"
+            android:hint="@string/ti_hint">
 
-            android:text="@={shared_view_model.acronym}"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/acronym_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="5dp"
+                android:singleLine="true"
+
+                android:text="@={shared_view_model.acronym}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Get Acronyms"
             android:onClick="@{()-> shared_view_model.getResponse()}"
-            app:toggleButtonState="@{shared_view_model.apiState}"
-            />
+            android:text="Get Acronyms"
+            app:toggleButtonState="@{shared_view_model.apiState}" />
 
     </LinearLayout>
 </layout>

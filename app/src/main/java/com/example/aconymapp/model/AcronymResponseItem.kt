@@ -13,4 +13,4 @@ data class AcronymResponseItem(
     val lfs: List<Lf>?,
     @Json(name = "sf")
     val sf: String?
-): Parcelable
+) : Parcelable
