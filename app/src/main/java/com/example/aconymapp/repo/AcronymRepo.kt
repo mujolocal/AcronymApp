@@ -5,7 +5,7 @@ import com.example.aconymapp.repo.remote.RetrofitInstance
 
 object AcronymRepo {
 
-    private val tmobileService = RetrofitInstance.ACRONYM_SERVICE
+    private val acronymService = RetrofitInstance.ACRONYM_SERVICE
 
-    suspend fun getTmobileResponse() = tmobileService.getTmobileResponse()
+    suspend fun getAcronymResponse(acronym: String) = acronymService.getAcronym(acronym)
 }
