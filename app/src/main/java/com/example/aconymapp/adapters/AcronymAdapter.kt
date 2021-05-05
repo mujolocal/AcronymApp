@@ -18,7 +18,6 @@ class AcronymAdapter(private val acronyms:AcronymResponseItem)
     }
 
     override fun getItemCount(): Int {
-        Log.d("TAG", "getItemCount:${acronyms.lfs?.size}")
         return acronyms.lfs?.size ?: 0
     }
 

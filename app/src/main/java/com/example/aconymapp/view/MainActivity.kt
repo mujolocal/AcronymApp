@@ -2,6 +2,12 @@ package com.example.aconymapp.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.widget.Toolbar
+import androidx.navigation.NavGraph
+import androidx.navigation.findNavController
+
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupWithNavController
 import com.example.aconymapp.R
 
 class MainActivity : AppCompatActivity() {

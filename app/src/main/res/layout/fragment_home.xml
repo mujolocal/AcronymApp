@@ -14,14 +14,16 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
-        tools:context=".HomeFragment">
+        tools:context=".HomeFragment"
+        android:padding="@dimen/screen_padding">
 
         <!-- TODO: Update blank fragment layout -->
         <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyleLarge"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            app:toggleProgressState="@{shared_view_model.apiState}" />
 
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
@@ -37,6 +39,9 @@
             android:id="@+id/acronym_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawablePadding="5dp"
+            android:singleLine="true"
+
             android:text="@={shared_view_model.acronym}"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -45,6 +50,7 @@
             android:layout_height="wrap_content"
             android:text="Get Acronyms"
             android:onClick="@{()-> shared_view_model.getResponse()}"
+            app:toggleButtonState="@{shared_view_model.apiState}"
             />
 
     </LinearLayout>
