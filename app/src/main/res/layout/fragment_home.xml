@@ -27,16 +27,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/welcom_txt" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:hint="@string/ti_hint"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/acronym_et"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="@={shared_view_model.acronym}"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Get Acronyms"
-            android:onClick="@{()-> shared_view_model.getResponse()}"/>
+            android:onClick="@{()-> shared_view_model.getResponse()}"
+            />
 
     </LinearLayout>
 </layout>
