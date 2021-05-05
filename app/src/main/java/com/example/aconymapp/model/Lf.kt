@@ -1,9 +1,12 @@
 package com.example.aconymapp.model
 
 
+import android.os.Parcelable
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 @JsonClass(generateAdapter = true)
 data class Lf(
     @Json(name = "freq")
@@ -14,4 +17,4 @@ data class Lf(
     val since: Int?,
     @Json(name = "vars")
     val vars: List<Var>?
-)
+) : Parcelable
