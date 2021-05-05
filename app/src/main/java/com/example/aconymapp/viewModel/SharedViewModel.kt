@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.aconymapp.model.AcronymResponse
+import com.example.aconymapp.model.AcronymResponseItem
 import com.example.aconymapp.repo.AcronymRepo
 import com.example.aconymapp.util.ApiState
 import kotlinx.coroutines.Dispatchers
@@ -14,8 +15,8 @@ import kotlinx.coroutines.launch
 
 class SharedViewModel : ViewModel(){
     private  val TAG = "SharedViewModel"
-    private val _apiState = MutableLiveData<ApiState<AcronymResponse?>>()
-    val apiState: LiveData<ApiState<AcronymResponse?>>
+    private val _apiState = MutableLiveData<ApiState<List<AcronymResponseItem>?>>()
+    val apiState: LiveData<ApiState<List<AcronymResponseItem>?>>
         get() = _apiState
 
 //    fun getResponse(acronym:String) {
@@ -26,7 +27,7 @@ fun getResponse() {
             viewModelScope.launch(Dispatchers.IO) {
                 _apiState.postValue(ApiState.Loading)
 //                val acronymResponse: AcronymResponse? = AcronymRepo.getAcronymResponse(acronym)
-                val acronymResponse: AcronymResponse? = AcronymRepo.getAcronymResponse("fe")
+                val acronymResponse: List<AcronymResponseItem>? = AcronymRepo.getAcronymResponse("fe")
                 if (acronymResponse != null) {
                     Log.d(TAG, "getResponse:${acronymResponse} ")
                     _apiState.postValue(ApiState.Success(acronymResponse))
