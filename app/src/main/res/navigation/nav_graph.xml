@@ -7,5 +7,13 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.aconymapp.view.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_acronymListFragment"
+            app:destination="@id/acronymListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/acronymListFragment"
+        android:name="com.example.aconymapp.view.AcronymListFragment"
+        android:label="AcronymListFragment" />
 </navigation>
